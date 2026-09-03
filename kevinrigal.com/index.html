@@ -5,78 +5,122 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Portfolio de Kevin Rigal (splint314) — parcours, stacks, projets scolaires et perso, prestations Discord.">
 <title>Kevin Rigal</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%90%A7%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#f8f6f1;
-    --surface:#ffffff;
-    --surface-2:#f0ece3;
-    --border:#e2dccd;
-    --border-strong:#d3ccb9;
-    --fg:#211d17;
-    --fg-dim:#5c5648;
-    --fg-faint:#8f887591;
-    --fg-faint:#948d79;
-    --accent:#c96a2e;
-    --accent-ink:#fff7ef;
-    --accent-soft:rgba(201,106,46,.10);
-    --accent-2:#2f7d68;
-    --accent-2-soft:rgba(47,125,104,.10);
-    --shadow:0 20px 50px -28px rgba(33,29,23,.35);
+    --bg:#0d0f14;
+    --surface:#151822;
+    --surface-2:#1c202b;
+    --border:#262b37;
+    --border-strong:#3a4150;
+    --fg:#f3f5f9;
+    --fg-dim:#a7afbf;
+    --fg-faint:#6b7280;
+    --accent:#ff7a45;
+    --accent-ink:#1a0d05;
+    --accent-soft:rgba(255,122,69,.16);
+    --accent-2:#2fe3ad;
+    --accent-2-soft:rgba(47,227,173,.16);
+    --gradient:linear-gradient(90deg,var(--accent),var(--accent-2));
+    --shadow:0 24px 60px -24px rgba(0,0,0,.65);
     --radius-s:6px;
     --radius-m:12px;
     --font-head:'Ubuntu',ui-sans-serif,system-ui,sans-serif;
     --font-body:'IBM Plex Sans',ui-sans-serif,system-ui,sans-serif;
     --font-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --bg:#1a1712;
-      --surface:#221e17;
-      --surface-2:#2b261c;
-      --border:#3c3526;
-      --border-strong:#4a4230;
-      --fg:#f3ede1;
-      --fg-dim:#c2b9a4;
-      --fg-faint:#8d8371;
-      --accent:#e2903f;
-      --accent-ink:#221407;
-      --accent-soft:rgba(226,144,63,.14);
-      --accent-2:#57b89b;
-      --accent-2-soft:rgba(87,184,155,.14);
-      --shadow:0 20px 50px -28px rgba(0,0,0,.6);
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme="dark"]){
+      --bg:#faf8f3;
+      --surface:#ffffff;
+      --surface-2:#f2ede3;
+      --border:#e6dfd1;
+      --border-strong:#d5cbb5;
+      --fg:#1c1a16;
+      --fg-dim:#5a5548;
+      --fg-faint:#8c8674;
+      --accent:#df5f22;
+      --accent-ink:#fff7ef;
+      --accent-soft:rgba(223,95,34,.10);
+      --accent-2:#0e9a76;
+      --accent-2-soft:rgba(14,154,118,.10);
+      --shadow:0 24px 60px -30px rgba(30,20,10,.22);
     }
   }
+  :root[data-theme="light"]{
+    --bg:#faf8f3;
+    --surface:#ffffff;
+    --surface-2:#f2ede3;
+    --border:#e6dfd1;
+    --border-strong:#d5cbb5;
+    --fg:#1c1a16;
+    --fg-dim:#5a5548;
+    --fg-faint:#8c8674;
+    --accent:#df5f22;
+    --accent-ink:#fff7ef;
+    --accent-soft:rgba(223,95,34,.10);
+    --accent-2:#0e9a76;
+    --accent-2-soft:rgba(14,154,118,.10);
+    --shadow:0 24px 60px -30px rgba(30,20,10,.22);
+  }
   :root[data-theme="dark"]{
-    --bg:#1a1712;
-    --surface:#221e17;
-    --surface-2:#2b261c;
-    --border:#3c3526;
-    --border-strong:#4a4230;
-    --fg:#f3ede1;
-    --fg-dim:#c2b9a4;
-    --fg-faint:#8d8371;
-    --accent:#e2903f;
-    --accent-ink:#221407;
-    --accent-soft:rgba(226,144,63,.14);
-    --accent-2:#57b89b;
-    --accent-2-soft:rgba(87,184,155,.14);
-    --shadow:0 20px 50px -28px rgba(0,0,0,.6);
+    --bg:#0d0f14;
+    --surface:#151822;
+    --surface-2:#1c202b;
+    --border:#262b37;
+    --border-strong:#3a4150;
+    --fg:#f3f5f9;
+    --fg-dim:#a7afbf;
+    --fg-faint:#6b7280;
+    --accent:#ff7a45;
+    --accent-ink:#1a0d05;
+    --accent-soft:rgba(255,122,69,.16);
+    --accent-2:#2fe3ad;
+    --accent-2-soft:rgba(47,227,173,.16);
+    --shadow:0 24px 60px -24px rgba(0,0,0,.65);
   }
 
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
     margin:0;
+    position:relative;
     background:var(--bg);
     color:var(--fg);
     font-family:var(--font-body);
     font-size:16px;
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
   }
+  body::before{
+    content:"";
+    position:fixed;inset:-15%;
+    z-index:-2;
+    background:
+      radial-gradient(560px circle at 12% 15%, var(--accent-soft), transparent 60%),
+      radial-gradient(520px circle at 88% 4%, var(--accent-2-soft), transparent 58%),
+      radial-gradient(480px circle at 30% 92%, var(--accent-2-soft), transparent 55%);
+    filter:blur(50px);
+    animation:drift 26s ease-in-out infinite alternate;
+    pointer-events:none;
+  }
+  body::after{
+    content:"";
+    position:fixed;inset:0;z-index:-1;
+    background-image:radial-gradient(var(--border-strong) 1px, transparent 1px);
+    background-size:26px 26px;
+    opacity:.35;
+    -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, #000 20%, transparent 75%);
+    mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, #000 20%, transparent 75%);
+    pointer-events:none;
+  }
+  @keyframes drift{ from{transform:translate3d(0,0,0) scale(1);} to{transform:translate3d(-3%,3%,0) scale(1.06);} }
+  @media (prefers-reduced-motion: reduce){ body::before{animation:none;} }
+
   ::selection{background:var(--accent-soft);color:var(--accent);}
   img,svg{max-width:100%;}
 
@@ -105,10 +149,18 @@
   @keyframes blink{50%{opacity:0;}}
   @media (prefers-reduced-motion: reduce){ .cursor{animation:none;} }
 
+  /* ---------- scroll progress ---------- */
+  .scroll-progress{
+    position:fixed;top:0;left:0;height:3px;width:0%;
+    background:var(--gradient);
+    z-index:70;
+    transition:width .12s linear;
+  }
+
   /* ---------- header ---------- */
   header{
     position:sticky;top:0;z-index:40;
-    background:color-mix(in srgb, var(--bg) 86%, transparent);
+    background:color-mix(in srgb, var(--bg) 80%, transparent);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--border);
   }
@@ -116,8 +168,13 @@
   .brand{font-family:var(--font-head);font-weight:700;font-size:1.05rem;color:var(--fg);display:flex;align-items:baseline;gap:2px;}
   .brand span{color:var(--accent);}
   .nav-links{display:flex;gap:28px;list-style:none;margin:0;padding:0;}
-  .nav-links a{font-size:.92rem;color:var(--fg-dim);padding:4px 0;border-bottom:2px solid transparent;transition:color .15s ease,border-color .15s ease;}
-  .nav-links a:hover{color:var(--fg);border-color:var(--border-strong);}
+  .nav-links a{position:relative;font-size:.92rem;color:var(--fg-dim);padding:4px 0;transition:color .15s ease;}
+  .nav-links a::after{
+    content:"";position:absolute;left:0;right:100%;bottom:-1px;height:2px;
+    background:var(--gradient);transition:right .25s ease;
+  }
+  .nav-links a:hover{color:var(--fg);}
+  .nav-links a:hover::after{right:0;}
   .nav-toggle{display:none;background:none;border:1px solid var(--border-strong);border-radius:var(--radius-s);width:38px;height:38px;color:var(--fg);font-size:1.1rem;cursor:pointer;}
 
   @media (max-width:760px){
@@ -143,20 +200,31 @@
     align-items:center;
   }
   .hero h1{font-size:clamp(2.1rem,4.6vw,3.4rem);line-height:1.08;margin-bottom:18px;}
-  .hero h1 em{font-style:normal;color:var(--accent);}
+  .hero h1 em{
+    font-style:normal;
+    background:var(--gradient);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
   .hero .lede{font-size:1.08rem;color:var(--fg-dim);max-width:52ch;margin-bottom:30px;}
   .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px;}
   .btn{
+    position:relative;overflow:hidden;
     font-family:var(--font-body);font-weight:500;font-size:.94rem;
     padding:12px 20px;border-radius:var(--radius-s);
     border:1px solid var(--border-strong);
-    transition:transform .15s ease, border-color .15s ease, background .15s ease;
+    transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
     display:inline-flex;align-items:center;gap:8px;
   }
-  .btn-primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);}
-  .btn-primary:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600;}
+  .btn-primary::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(120deg,transparent,rgba(255,255,255,.4),transparent);
+    transform:translateX(-130%);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px -12px var(--accent-soft);}
+  .btn-primary:hover::after{transform:translateX(130%);transition:transform .6s ease;}
   .btn-ghost{color:var(--fg);}
-  .btn-ghost:hover{border-color:var(--fg);}
+  .btn-ghost:hover{border-color:var(--accent-2);color:var(--accent-2);transform:translateY(-2px);}
 
   .stat-row{display:flex;gap:32px;flex-wrap:wrap;}
   .stat b{display:block;font-family:var(--font-head);font-size:1.5rem;font-variant-numeric:tabular-nums;color:var(--fg);}
@@ -168,7 +236,11 @@
     border-radius:var(--radius-m);
     box-shadow:var(--shadow);
     overflow:hidden;
+    transition:transform .2s ease, box-shadow .2s ease;
+    transform-style:preserve-3d;
+    will-change:transform;
   }
+  .hero-card:hover{box-shadow:0 30px 70px -24px var(--accent-2-soft);}
   .hero-card-bar{display:flex;gap:6px;padding:12px 14px;border-bottom:1px solid var(--border);background:var(--surface-2);}
   .hero-card-bar span{width:9px;height:9px;border-radius:50%;background:var(--border-strong);}
   .hero-card-body{padding:20px 22px 24px;font-family:var(--font-mono);font-size:.86rem;line-height:1.9;color:var(--fg-dim);}
@@ -193,8 +265,12 @@
     content:"";position:absolute;left:-28px;top:5px;
     width:11px;height:11px;border-radius:50%;
     background:var(--surface);border:2px solid var(--accent-2);
+    transition:transform .2s ease;
   }
-  .tl-item.now::before{background:var(--accent);border-color:var(--accent);}
+  .tl-item:hover::before{transform:scale(1.3);}
+  .tl-item.now::before{background:var(--accent);border-color:var(--accent);animation:pulse 2s ease-out infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 var(--accent-soft);}70%{box-shadow:0 0 0 10px transparent;}100%{box-shadow:0 0 0 0 transparent;}}
+  @media (prefers-reduced-motion: reduce){ .tl-item.now::before{animation:none;} }
   .tl-tag{font-family:var(--font-mono);font-size:.72rem;color:var(--fg-faint);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;}
   .tl-item h3{font-size:1.08rem;margin-bottom:6px;}
   .tl-item p{color:var(--fg-dim);font-size:.95rem;max-width:56ch;}
@@ -208,19 +284,24 @@
     font-family:var(--font-mono);font-size:.85rem;color:var(--fg);
     background:var(--surface);border:1px solid var(--border);
     border-radius:999px;padding:7px 15px;
+    transition:border-color .18s ease, transform .18s ease, color .18s ease;
   }
+  .pill:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
+
+  /* ---------- shared lift/glow card ---------- */
+  .liftcard{transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;}
+  .liftcard:hover{transform:translateY(-4px);border-color:var(--accent-2);box-shadow:0 20px 45px -22px var(--accent-2-soft);}
 
   /* ---------- repo grid ---------- */
   .stat-line{color:var(--fg-faint);font-size:.85rem;margin:-24px 0 28px;}
   .repo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;}
   .repo-card{
     background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-s);
-    padding:16px 18px;transition:border-color .15s ease, transform .15s ease;
+    padding:16px 18px;
   }
-  .repo-card:hover{border-color:var(--accent-2);transform:translateY(-2px);}
   .repo-card .path{font-family:var(--font-mono);font-size:.72rem;color:var(--fg-faint);margin-bottom:6px;display:block;}
   .repo-card a{font-weight:600;font-size:.95rem;color:var(--fg);}
-  .repo-card a:hover{color:var(--accent-2);}
+  .repo-card:hover a{color:var(--accent-2);}
   .repo-card p{color:var(--fg-dim);font-size:.83rem;margin-top:6px;line-height:1.5;}
 
   /* ---------- featured projects ---------- */
@@ -237,35 +318,73 @@
   .proj-card p.desc{color:var(--fg-dim);font-size:.92rem;line-height:1.65;}
   .tag-row{display:flex;flex-wrap:wrap;gap:8px;}
   .tag{font-family:var(--font-mono);font-size:.72rem;color:var(--fg-dim);background:var(--surface-2);border:1px solid var(--border);border-radius:4px;padding:3px 8px;}
-  .proj-link{margin-top:auto;font-size:.88rem;font-weight:500;color:var(--accent-2);display:inline-flex;align-items:center;gap:6px;}
-  .proj-link:hover{color:var(--accent);}
-  .proj-meta{font-size:.82rem;color:var(--fg-faint);}
+  .proj-link{margin-top:auto;font-size:.88rem;font-weight:500;color:var(--accent-2);display:inline-flex;align-items:center;gap:6px;transition:gap .18s ease, color .18s ease;}
+  .proj-link:hover{color:var(--accent);gap:10px;}
 
   .bot-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px 18px;}
-  .bot-list li{font-size:.85rem;color:var(--fg-dim);padding:9px 0;border-top:1px solid var(--border);}
+  .bot-list li{font-size:.85rem;color:var(--fg-dim);padding:9px 4px;border-top:1px solid var(--border);border-radius:4px;transition:background .18s ease,padding-left .18s ease;}
+  .bot-list li:hover{background:var(--surface-2);padding-left:10px;}
   .bot-list li b{font-family:var(--font-mono);font-weight:500;color:var(--fg);display:block;font-size:.82rem;margin-bottom:2px;}
 
   /* ---------- prestations ---------- */
-  .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch;}
+  .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start;}
   @media (max-width:900px){.pricing{grid-template-columns:1fr;}}
   .price-card{
     position:relative;
     background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-m);
-    padding:28px 24px;display:flex;flex-direction:column;
+    padding:28px 24px 22px;display:flex;flex-direction:column;
+    overflow:hidden;
+    transition:border-color .2s ease, box-shadow .2s ease, transform .2s ease;
   }
-  .price-card.reco{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent);}
+  .price-card::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:var(--tier-color, var(--border-strong));
+  }
+  .price-card[data-tier="basique"]{--tier-color:var(--fg-faint);}
+  .price-card[data-tier="avancee"]{--tier-color:var(--accent-2);}
+  .price-card[data-tier="speciale"]{--tier-color:var(--gradient);}
+  .price-card:hover, .price-card:focus-within{
+    transform:translateY(-4px);
+    box-shadow:0 24px 50px -24px var(--accent-2-soft);
+  }
+  .price-card.reco{border-color:var(--accent);}
+  .price-card.reco:hover, .price-card.reco:focus-within{box-shadow:0 24px 50px -22px var(--accent-soft);}
   .price-badge{
-    position:absolute;top:-12px;right:22px;
-    background:var(--accent);color:var(--accent-ink);
-    font-size:.7rem;font-weight:600;letter-spacing:.03em;
-    padding:4px 10px;border-radius:999px;
+    position:absolute;top:14px;right:-32px;
+    background:var(--gradient);color:var(--accent-ink);
+    font-size:.68rem;font-weight:700;letter-spacing:.03em;
+    padding:4px 38px;transform:rotate(38deg);
+    box-shadow:0 6px 16px -6px var(--accent-soft);
   }
   .price-tier{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--fg-faint);margin-bottom:10px;}
   .price-card h3{font-size:1.15rem;margin-bottom:6px;}
-  .price-amount{font-family:var(--font-head);font-size:2.1rem;font-weight:700;font-variant-numeric:tabular-nums;margin-bottom:18px;}
-  .price-amount small{font-family:var(--font-body);font-size:.9rem;font-weight:400;color:var(--fg-faint);}
-  .price-includes{font-size:.78rem;color:var(--fg-faint);margin:0 0 12px;}
-  .price-list{list-style:none;margin:0 0 22px;padding:0;flex:1;}
+  .price-amount{font-family:var(--font-head);font-size:2.1rem;font-weight:700;font-variant-numeric:tabular-nums;margin-bottom:8px;}
+  .price-teaser{font-size:.87rem;color:var(--fg-dim);line-height:1.55;margin-bottom:16px;min-height:2.7em;}
+
+  .price-toggle{
+    display:flex;align-items:center;gap:8px;
+    background:none;border:1px dashed var(--border-strong);border-radius:999px;
+    padding:8px 14px;margin-bottom:2px;
+    font-family:var(--font-mono);font-size:.76rem;color:var(--fg-dim);
+    cursor:pointer;transition:border-color .18s ease, color .18s ease;
+    width:fit-content;
+  }
+  .price-toggle:hover{border-color:var(--accent);color:var(--accent);}
+  .price-toggle svg{width:11px;height:11px;transition:transform .3s ease;flex:none;}
+  .price-card:hover .price-toggle svg,
+  .price-card:focus-within .price-toggle svg,
+  .price-card.open .price-toggle svg{transform:rotate(180deg);}
+  .price-card:hover .price-toggle,
+  .price-card:focus-within .price-toggle,
+  .price-card.open .price-toggle{border-color:var(--accent);color:var(--accent);}
+
+  .price-detail{max-height:0;opacity:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1), opacity .3s ease, margin .45s ease;}
+  .price-card:hover .price-detail,
+  .price-card:focus-within .price-detail,
+  .price-card.open .price-detail{max-height:420px;opacity:1;margin-top:14px;}
+
+  .price-includes{font-size:.78rem;color:var(--fg-faint);margin:0 0 10px;}
+  .price-list{list-style:none;margin:0;padding:0;}
   .price-list li{position:relative;padding-left:20px;margin-bottom:10px;font-size:.88rem;color:var(--fg-dim);line-height:1.5;}
   .price-list li::before{content:"+";position:absolute;left:0;color:var(--accent-2);font-weight:700;}
 
@@ -273,27 +392,40 @@
     display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
     margin-top:26px;padding:16px 20px;
     background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-s);
+    transition:border-color .2s ease;
   }
+  .addon:hover{border-color:var(--accent-2);}
   .addon b{font-family:var(--font-head);}
   .addon span{color:var(--fg-dim);font-size:.86rem;}
-  .addon .amt{font-family:var(--font-head);font-weight:700;font-variant-numeric:tabular-nums;color:var(--fg);}
+  .addon .amt{font-family:var(--font-head);font-weight:700;font-variant-numeric:tabular-nums;color:var(--accent-2);}
 
   /* ---------- contact / footer ---------- */
   footer{border-top:1px solid var(--border);padding:56px 0 40px;}
   .contact-grid{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:32px;}
   .contact-links{display:flex;flex-wrap:wrap;gap:10px 28px;list-style:none;margin:14px 0 0;padding:0;}
-  .contact-links a{font-size:.94rem;color:var(--fg-dim);}
+  .contact-links a{font-size:.94rem;color:var(--fg-dim);position:relative;}
+  .contact-links a:not(.plain)::after{
+    content:"";position:absolute;left:0;right:100%;bottom:-2px;height:1px;
+    background:var(--accent-2);transition:right .2s ease;
+  }
   .contact-links a:hover{color:var(--accent-2);}
+  .contact-links a:hover::after{right:0;}
   .sig{font-family:var(--font-mono);font-size:.82rem;color:var(--fg-faint);}
   .sig b{color:var(--accent-2);font-weight:500;}
 
   /* ---------- reveal ---------- */
-  .reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease, transform .55s ease;}
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease, transform .55s ease;}
   .reveal.visible{opacity:1;transform:translateY(0);}
-  @media (prefers-reduced-motion: reduce){ .reveal{opacity:1;transform:none;transition:none;} }
+  .stagger-item{opacity:0;transform:translateY(12px) scale(.98);transition:opacity .5s ease, transform .5s ease;transition-delay:var(--d,0ms);}
+  .reveal.visible .stagger-item{opacity:1;transform:translateY(0) scale(1);}
+  @media (prefers-reduced-motion: reduce){
+    .reveal, .stagger-item{opacity:1;transform:none;transition:none;}
+  }
 </style>
 </head>
 <body>
+
+<div class="scroll-progress" id="scroll-progress"></div>
 
 <header>
   <div class="nav wrap">
@@ -322,12 +454,12 @@
         <a class="btn btn-ghost" href="#contact">Me contacter</a>
       </div>
       <div class="stat-row">
-        <div class="stat"><b>24</b><span>Dépôts publics</span></div>
-        <div class="stat"><b>6</b><span>Bots en prod</span></div>
-        <div class="stat"><b>2</b><span>Certifs IBM</span></div>
+        <div class="stat"><b data-count="24">0</b><span>Dépôts publics</span></div>
+        <div class="stat"><b data-count="6">0</b><span>Bots en prod</span></div>
+        <div class="stat"><b data-count="2">0</b><span>Certifs IBM</span></div>
       </div>
     </div>
-    <div class="hero-card" aria-hidden="true">
+    <div class="hero-card" id="hero-card" aria-hidden="true">
       <div class="hero-card-bar"><span></span><span></span><span></span></div>
       <div class="hero-card-body">
         <div><span class="k">formation</span> <span class="v">Holberton School</span></div>
@@ -430,21 +562,21 @@
     </div>
     <p class="stat-line">15 dépôts sur 24 (github.com/splint314). Le reste est en vedette dans la section Projets.</p>
     <div class="repo-grid">
-      <div class="repo-card"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-simple_shell2" target="_blank" rel="noopener">simple_shell</a><p>Shell UNIX écrit from scratch, en C.</p></div>
-      <div class="repo-card"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-printf" target="_blank" rel="noopener">printf</a><p>Réimplémentation maison de printf en C.</p></div>
-      <div class="repo-card"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-low_level_programming" target="_blank" rel="noopener">low_level_programming</a><p>Pointeurs, mémoire et structures en C bas niveau.</p></div>
-      <div class="repo-card"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-higher_level_programming" target="_blank" rel="noopener">higher_level_programming</a><p>Python &amp; JavaScript orientés objet.</p></div>
-      <div class="repo-card"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-web_back_end" target="_blank" rel="noopener">web_back_end</a><p>API et back-end web en Python.</p></div>
-      <div class="repo-card"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-shell" target="_blank" rel="noopener">shell</a><p>Scripts shell en Bash.</p></div>
-      <div class="repo-card"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-devops-basics" target="_blank" rel="noopener">devops-basics</a><p>Bases DevOps : CI/CD, conteneurs.</p></div>
-      <div class="repo-card"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-sw_design_architecture" target="_blank" rel="noopener">sw_design_architecture</a><p>Architecture logicielle &amp; design patterns.</p></div>
-      <div class="repo-card"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-core-engineering" target="_blank" rel="noopener">core-engineering</a><p>Fondamentaux d'ingénierie logicielle.</p></div>
-      <div class="repo-card"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-data_modeling_and_persistence" target="_blank" rel="noopener">data_modeling_and_persistence</a><p>Modélisation de données &amp; persistance.</p></div>
-      <div class="repo-card"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-Fix_My_Code_Challenge" target="_blank" rel="noopener">Fix_My_Code_Challenge</a><p>Challenge de correction de code en C.</p></div>
-      <div class="repo-card"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-france-certificates-ibm" target="_blank" rel="noopener">france-certificates-ibm</a><p>Certificats IBM (Agile, Open Source).</p></div>
-      <div class="repo-card"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-interview" target="_blank" rel="noopener">interview</a><p>Préparation aux entretiens techniques.</p></div>
-      <div class="repo-card"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-github-flow" target="_blank" rel="noopener">github-flow</a><p>Apprentissage du workflow Git collaboratif.</p></div>
-      <div class="repo-card"><span class="path">splint314/</span><a href="https://github.com/splint314/git-intro" target="_blank" rel="noopener">git-intro</a><p>Introduction à Git.</p></div>
+      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-simple_shell2" target="_blank" rel="noopener">simple_shell</a><p>Shell UNIX écrit from scratch, en C.</p></div>
+      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-printf" target="_blank" rel="noopener">printf</a><p>Réimplémentation maison de printf en C.</p></div>
+      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-low_level_programming" target="_blank" rel="noopener">low_level_programming</a><p>Pointeurs, mémoire et structures en C bas niveau.</p></div>
+      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-higher_level_programming" target="_blank" rel="noopener">higher_level_programming</a><p>Python &amp; JavaScript orientés objet.</p></div>
+      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-web_back_end" target="_blank" rel="noopener">web_back_end</a><p>API et back-end web en Python.</p></div>
+      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-shell" target="_blank" rel="noopener">shell</a><p>Scripts shell en Bash.</p></div>
+      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-devops-basics" target="_blank" rel="noopener">devops-basics</a><p>Bases DevOps : CI/CD, conteneurs.</p></div>
+      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-sw_design_architecture" target="_blank" rel="noopener">sw_design_architecture</a><p>Architecture logicielle &amp; design patterns.</p></div>
+      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-core-engineering" target="_blank" rel="noopener">core-engineering</a><p>Fondamentaux d'ingénierie logicielle.</p></div>
+      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-data_modeling_and_persistence" target="_blank" rel="noopener">data_modeling_and_persistence</a><p>Modélisation de données &amp; persistance.</p></div>
+      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-Fix_My_Code_Challenge" target="_blank" rel="noopener">Fix_My_Code_Challenge</a><p>Challenge de correction de code en C.</p></div>
+      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-france-certificates-ibm" target="_blank" rel="noopener">france-certificates-ibm</a><p>Certificats IBM (Agile, Open Source).</p></div>
+      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-interview" target="_blank" rel="noopener">interview</a><p>Préparation aux entretiens techniques.</p></div>
+      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-github-flow" target="_blank" rel="noopener">github-flow</a><p>Apprentissage du workflow Git collaboratif.</p></div>
+      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/git-intro" target="_blank" rel="noopener">git-intro</a><p>Introduction à Git.</p></div>
     </div>
   </section>
 
@@ -456,7 +588,7 @@
     </div>
     <div class="proj-grid">
 
-      <div class="proj-card">
+      <div class="proj-card liftcard stagger-item">
         <div class="proj-top">
           <h3>Linguao</h3>
           <span class="proj-status">actif</span>
@@ -466,7 +598,7 @@
         <a class="proj-link" href="https://github.com/splint314/linguao" target="_blank" rel="noopener">Voir sur GitHub →</a>
       </div>
 
-      <div class="proj-card">
+      <div class="proj-card liftcard stagger-item">
         <div class="proj-top">
           <h3>HBntory</h3>
           <span class="proj-status">actif</span>
@@ -476,7 +608,7 @@
         <a class="proj-link" href="https://github.com/splint314/HBntory" target="_blank" rel="noopener">Voir sur GitHub →</a>
       </div>
 
-      <div class="proj-card">
+      <div class="proj-card liftcard stagger-item">
         <div class="proj-top">
           <h3>Simple Shell</h3>
           <span class="proj-status">finalisé</span>
@@ -486,7 +618,7 @@
         <a class="proj-link" href="https://github.com/splint314/holbertonschool-simple_shell2" target="_blank" rel="noopener">Voir sur GitHub →</a>
       </div>
 
-      <div class="proj-card">
+      <div class="proj-card liftcard stagger-item">
         <div class="proj-top">
           <h3>Site vitrine · Mairie de Paris</h3>
           <span class="proj-status">finalisé</span>
@@ -496,7 +628,7 @@
         <a class="proj-link" href="https://github.com/Rwanbt/holbertonschool-project-paris" target="_blank" rel="noopener">Voir sur GitHub →</a>
       </div>
 
-      <div class="proj-card wide">
+      <div class="proj-card liftcard wide stagger-item">
         <div class="proj-top">
           <h3>Bots Discord</h3>
           <span class="proj-status">actif · 6 instances</span>
@@ -520,44 +652,66 @@
     <div class="section-head">
       <p class="eyebrow">Prestations</p>
       <h2>Serveur Discord clé en main</h2>
+      <p style="color:var(--fg-faint);font-size:.85rem;margin-top:10px;">Survole ou touche une carte pour voir le détail de chaque offre.</p>
     </div>
 
     <div class="pricing">
-      <div class="price-card">
+      <div class="price-card" data-tier="basique">
         <p class="price-tier">Essentiel</p>
         <h3>Basique</h3>
         <p class="price-amount">90€</p>
-        <ul class="price-list">
-          <li>Structure complète (salons textuels/vocaux, catégories)</li>
-          <li>Rôles et permissions configurés</li>
-          <li>Forum avec tags et guide de post</li>
-          <li>Emojis et thème visuel cohérent</li>
-          <li>Règlement de base</li>
-        </ul>
+        <p class="price-teaser">Le nécessaire pour lancer un serveur propre et bien structuré.</p>
+        <button class="price-toggle" type="button" aria-expanded="false">
+          <span>Voir le détail</span>
+          <svg viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="price-detail">
+          <ul class="price-list">
+            <li>Structure complète (salons textuels/vocaux, catégories)</li>
+            <li>Rôles et permissions configurés</li>
+            <li>Forum avec tags et guide de post</li>
+            <li>Emojis et thème visuel cohérent</li>
+            <li>Règlement de base</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="price-card">
+      <div class="price-card" data-tier="avancee">
         <p class="price-tier">Modération</p>
         <h3>Avancée</h3>
         <p class="price-amount">240€</p>
-        <p class="price-includes">Toute l'offre Basique, plus :</p>
-        <ul class="price-list">
-          <li>Bot de modération personnalisé (kick/ban/mute/warn)</li>
-          <li>Anti-spam / anti-raid basique</li>
-          <li>Commandes configurées selon les besoins du client</li>
-        </ul>
+        <p class="price-teaser">Ajoute une modération automatisée et sur-mesure au serveur.</p>
+        <button class="price-toggle" type="button" aria-expanded="false">
+          <span>Voir le détail</span>
+          <svg viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="price-detail">
+          <p class="price-includes">Toute l'offre Basique, plus :</p>
+          <ul class="price-list">
+            <li>Bot de modération personnalisé (kick/ban/mute/warn)</li>
+            <li>Anti-spam / anti-raid basique</li>
+            <li>Commandes configurées selon les besoins du client</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="price-card reco">
+      <div class="price-card reco" data-tier="speciale">
         <span class="price-badge">Recommandé</span>
         <p class="price-tier">Premium</p>
         <h3>Spéciale</h3>
         <p class="price-amount">340€</p>
-        <p class="price-includes">Toute l'offre Avancée, plus :</p>
-        <ul class="price-list">
-          <li>1 mois de support / ajustements inclus</li>
-          <li>Formation client (gestion des rôles, salons, etc.)</li>
-        </ul>
+        <p class="price-teaser">Accompagnement complet : support et formation inclus.</p>
+        <button class="price-toggle" type="button" aria-expanded="false">
+          <span>Voir le détail</span>
+          <svg viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="price-detail">
+          <p class="price-includes">Toute l'offre Avancée, plus :</p>
+          <ul class="price-list">
+            <li>1 mois de support / ajustements inclus</li>
+            <li>Formation client (gestion des rôles, salons, etc.)</li>
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -577,7 +731,7 @@
           <li><a href="https://github.com/splint314" target="_blank" rel="noopener">GitHub</a></li>
           <li><a href="https://www.linkedin.com/in/kevin-rigal-80a331240/" target="_blank" rel="noopener">LinkedIn</a></li>
           <li><a href="mailto:kevinrigal.contact@gmail.com">kevinrigal.contact@gmail.com</a></li>
-          <li>Discord : kevin_rigal</li>
+          <li class="plain">Discord : kevin_rigal</li>
         </ul>
       </div>
       <p class="sig"><b>kevin@splint314</b>:~$ <span class="cursor"></span></p>
@@ -598,8 +752,28 @@
       a.addEventListener("click", function(){ links.classList.remove("open"); });
     });
 
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    /* scroll progress bar */
+    var bar = document.getElementById("scroll-progress");
+    function updateProgress(){
+      var h = document.documentElement;
+      var scrolled = h.scrollTop || document.body.scrollTop;
+      var height = h.scrollHeight - h.clientHeight;
+      bar.style.width = (height > 0 ? (scrolled / height) * 100 : 0) + "%";
+    }
+    document.addEventListener("scroll", updateProgress, { passive: true });
+    updateProgress();
+
+    /* reveal + stagger */
     var reveals = document.querySelectorAll(".reveal");
-    if ("IntersectionObserver" in window) {
+    reveals.forEach(function(section){
+      var items = section.querySelectorAll(".stagger-item");
+      items.forEach(function(el, i){ el.style.setProperty("--d", (i * 70) + "ms"); });
+    });
+    if (reduceMotion) {
+      reveals.forEach(function(el){ el.classList.add("visible"); });
+    } else if ("IntersectionObserver" in window) {
       var io = new IntersectionObserver(function(entries){
         entries.forEach(function(entry){
           if (entry.isIntersecting) entry.target.classList.add("visible");
@@ -609,6 +783,48 @@
     } else {
       reveals.forEach(function(el){ el.classList.add("visible"); });
     }
+
+    /* stat count-up */
+    var stats = document.querySelectorAll(".stat b[data-count]");
+    function animateStats(){
+      stats.forEach(function(el){
+        var target = parseInt(el.getAttribute("data-count"), 10);
+        if (reduceMotion) { el.textContent = target; return; }
+        var start = null, duration = 900;
+        function step(ts){
+          if (!start) start = ts;
+          var p = Math.min((ts - start) / duration, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(eased * target);
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }
+    animateStats();
+
+    /* hero card tilt */
+    var card = document.getElementById("hero-card");
+    if (!reduceMotion && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      card.addEventListener("mousemove", function(e){
+        var r = card.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width - 0.5;
+        var py = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform = "perspective(700px) rotateX(" + (py * -6) + "deg) rotateY(" + (px * 8) + "deg)";
+      });
+      card.addEventListener("mouseleave", function(){
+        card.style.transform = "perspective(700px) rotateX(0) rotateY(0)";
+      });
+    }
+
+    /* prestations: tap-to-toggle for touch, in addition to CSS hover/focus-within */
+    document.querySelectorAll(".price-toggle").forEach(function(btn){
+      btn.addEventListener("click", function(){
+        var cardEl = btn.closest(".price-card");
+        var open = cardEl.classList.toggle("open");
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    });
   })();
 </script>
 </body>
