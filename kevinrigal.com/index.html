@@ -11,75 +11,77 @@
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0d0f14;
-    --surface:#151822;
-    --surface-2:#1c202b;
-    --border:#262b37;
-    --border-strong:#3a4150;
-    --fg:#f3f5f9;
-    --fg-dim:#a7afbf;
-    --fg-faint:#6b7280;
-    --accent:#ff7a45;
-    --accent-ink:#1a0d05;
-    --accent-soft:rgba(255,122,69,.16);
-    --accent-2:#2fe3ad;
-    --accent-2-soft:rgba(47,227,173,.16);
+    --bg:#0a0a14;
+    --surface:#131320;
+    --surface-2:#191929;
+    --border:#26263c;
+    --border-strong:#3d3d5c;
+    --fg:#f4f3fb;
+    --fg-dim:#aaa7c9;
+    --fg-faint:#6f6c92;
+    --accent:#8b5cf6;
+    --accent-ink:#140a2b;
+    --accent-soft:rgba(139,92,246,.18);
+    --accent-2:#22d3ee;
+    --accent-2-soft:rgba(34,211,238,.16);
     --gradient:linear-gradient(90deg,var(--accent),var(--accent-2));
     --shadow:0 24px 60px -24px rgba(0,0,0,.65);
     --radius-s:6px;
     --radius-m:12px;
+    --mx:50%;
+    --my:50%;
     --font-head:'Ubuntu',ui-sans-serif,system-ui,sans-serif;
     --font-body:'IBM Plex Sans',ui-sans-serif,system-ui,sans-serif;
     --font-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   }
   @media (prefers-color-scheme: light){
     :root:not([data-theme="dark"]){
-      --bg:#faf8f3;
+      --bg:#faf9ff;
       --surface:#ffffff;
-      --surface-2:#f2ede3;
-      --border:#e6dfd1;
-      --border-strong:#d5cbb5;
-      --fg:#1c1a16;
-      --fg-dim:#5a5548;
-      --fg-faint:#8c8674;
-      --accent:#df5f22;
-      --accent-ink:#fff7ef;
-      --accent-soft:rgba(223,95,34,.10);
-      --accent-2:#0e9a76;
-      --accent-2-soft:rgba(14,154,118,.10);
-      --shadow:0 24px 60px -30px rgba(30,20,10,.22);
+      --surface-2:#f1eefc;
+      --border:#e6e0f7;
+      --border-strong:#cfc4ec;
+      --fg:#1b1830;
+      --fg-dim:#57517e;
+      --fg-faint:#8b84ab;
+      --accent:#6d28d9;
+      --accent-ink:#fbf7ff;
+      --accent-soft:rgba(109,40,217,.10);
+      --accent-2:#0891b2;
+      --accent-2-soft:rgba(8,145,178,.10);
+      --shadow:0 24px 60px -30px rgba(40,20,80,.20);
     }
   }
   :root[data-theme="light"]{
-    --bg:#faf8f3;
+    --bg:#faf9ff;
     --surface:#ffffff;
-    --surface-2:#f2ede3;
-    --border:#e6dfd1;
-    --border-strong:#d5cbb5;
-    --fg:#1c1a16;
-    --fg-dim:#5a5548;
-    --fg-faint:#8c8674;
-    --accent:#df5f22;
-    --accent-ink:#fff7ef;
-    --accent-soft:rgba(223,95,34,.10);
-    --accent-2:#0e9a76;
-    --accent-2-soft:rgba(14,154,118,.10);
-    --shadow:0 24px 60px -30px rgba(30,20,10,.22);
+    --surface-2:#f1eefc;
+    --border:#e6e0f7;
+    --border-strong:#cfc4ec;
+    --fg:#1b1830;
+    --fg-dim:#57517e;
+    --fg-faint:#8b84ab;
+    --accent:#6d28d9;
+    --accent-ink:#fbf7ff;
+    --accent-soft:rgba(109,40,217,.10);
+    --accent-2:#0891b2;
+    --accent-2-soft:rgba(8,145,178,.10);
+    --shadow:0 24px 60px -30px rgba(40,20,80,.20);
   }
   :root[data-theme="dark"]{
-    --bg:#0d0f14;
-    --surface:#151822;
-    --surface-2:#1c202b;
-    --border:#262b37;
-    --border-strong:#3a4150;
-    --fg:#f3f5f9;
-    --fg-dim:#a7afbf;
-    --fg-faint:#6b7280;
-    --accent:#ff7a45;
-    --accent-ink:#1a0d05;
-    --accent-soft:rgba(255,122,69,.16);
-    --accent-2:#2fe3ad;
-    --accent-2-soft:rgba(47,227,173,.16);
+    --bg:#0a0a14;
+    --surface:#131320;
+    --surface-2:#191929;
+    --border:#26263c;
+    --border-strong:#3d3d5c;
+    --fg:#f4f3fb;
+    --fg-dim:#aaa7c9;
+    --fg-faint:#6f6c92;
+    --accent:#8b5cf6;
+    --accent-ink:#140a2b;
+    --accent-soft:rgba(139,92,246,.18);
+    --accent-2:#22d3ee;
+    --accent-2-soft:rgba(34,211,238,.16);
     --shadow:0 24px 60px -24px rgba(0,0,0,.65);
   }
 
@@ -120,6 +122,16 @@
   }
   @keyframes drift{ from{transform:translate3d(0,0,0) scale(1);} to{transform:translate3d(-3%,3%,0) scale(1.06);} }
   @media (prefers-reduced-motion: reduce){ body::before{animation:none;} }
+
+  /* ---------- cursor-reactive glow ---------- */
+  .cursor-glow{
+    position:fixed;inset:0;z-index:-1;
+    background:radial-gradient(560px circle at var(--mx) var(--my), var(--accent-soft), transparent 62%);
+    opacity:0;transition:opacity .4s ease;
+    pointer-events:none;
+  }
+  .cursor-glow.active{opacity:1;}
+  @media (hover:none), (prefers-reduced-motion: reduce){ .cursor-glow{display:none;} }
 
   ::selection{background:var(--accent-soft);color:var(--accent);}
   img,svg{max-width:100%;}
@@ -202,9 +214,13 @@
   .hero h1{font-size:clamp(2.1rem,4.6vw,3.4rem);line-height:1.08;margin-bottom:18px;}
   .hero h1 em{
     font-style:normal;
-    background:var(--gradient);
+    background:linear-gradient(90deg,var(--accent),var(--accent-2),var(--accent));
+    background-size:200% auto;
     -webkit-background-clip:text;background-clip:text;color:transparent;
+    animation:shimmer 5s linear infinite;
   }
+  @keyframes shimmer{ to{background-position:-200% center;} }
+  @media (prefers-reduced-motion: reduce){ .hero h1 em{animation:none;} }
   .hero .lede{font-size:1.08rem;color:var(--fg-dim);max-width:52ch;margin-bottom:30px;}
   .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px;}
   .btn{
@@ -292,6 +308,17 @@
   .liftcard{transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;}
   .liftcard:hover{transform:translateY(-4px);border-color:var(--accent-2);box-shadow:0 20px 45px -22px var(--accent-2-soft);}
 
+  /* ---------- spotlight-on-hover (follows cursor) ---------- */
+  .spot{position:relative;overflow:hidden;}
+  .spot::before{
+    content:"";position:absolute;inset:0;z-index:0;
+    background:radial-gradient(220px circle at var(--sx,50%) var(--sy,50%), var(--accent-soft), transparent 72%);
+    opacity:0;transition:opacity .35s ease;
+    pointer-events:none;
+  }
+  .spot:hover::before{opacity:1;}
+  .spot > *{position:relative;z-index:1;}
+
   /* ---------- repo grid ---------- */
   .stat-line{color:var(--fg-faint);font-size:.85rem;margin:-24px 0 28px;}
   .repo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;}
@@ -347,8 +374,13 @@
     transform:translateY(-4px);
     box-shadow:0 24px 50px -24px var(--accent-2-soft);
   }
-  .price-card.reco{border-color:var(--accent);}
-  .price-card.reco:hover, .price-card.reco:focus-within{box-shadow:0 24px 50px -22px var(--accent-soft);}
+  .price-card.reco{border-color:var(--accent);animation:reco-glow 3.2s ease-in-out infinite;}
+  .price-card.reco:hover, .price-card.reco:focus-within{box-shadow:0 24px 50px -22px var(--accent-soft);animation-play-state:paused;}
+  @keyframes reco-glow{
+    0%,100%{box-shadow:0 0 0 0 var(--accent-soft);}
+    50%{box-shadow:0 0 0 7px transparent, 0 20px 45px -20px var(--accent-soft);}
+  }
+  @media (prefers-reduced-motion: reduce){ .price-card.reco{animation:none;} }
   .price-badge{
     position:absolute;top:14px;right:-32px;
     background:var(--gradient);color:var(--accent-ink);
@@ -385,8 +417,28 @@
 
   .price-includes{font-size:.78rem;color:var(--fg-faint);margin:0 0 10px;}
   .price-list{list-style:none;margin:0;padding:0;}
-  .price-list li{position:relative;padding-left:20px;margin-bottom:10px;font-size:.88rem;color:var(--fg-dim);line-height:1.5;}
-  .price-list li::before{content:"+";position:absolute;left:0;color:var(--accent-2);font-weight:700;}
+  .price-list li{
+    position:relative;padding-left:20px;margin-bottom:10px;font-size:.88rem;color:var(--fg-dim);line-height:1.5;
+    opacity:0;transform:translateX(-8px);
+    transition:opacity .35s ease, transform .35s ease;
+    transition-delay:0ms;
+  }
+  .price-card:hover .price-list li,
+  .price-card:focus-within .price-list li,
+  .price-card.open .price-list li{opacity:1;transform:translateX(0);}
+  .price-list li:nth-child(1){transition-delay:.05s;}
+  .price-list li:nth-child(2){transition-delay:.12s;}
+  .price-list li:nth-child(3){transition-delay:.19s;}
+  .price-list li:nth-child(4){transition-delay:.26s;}
+  .price-list li:nth-child(5){transition-delay:.33s;}
+  .price-list li::before{content:"+";position:absolute;left:0;color:var(--accent-2);font-weight:700;transition:transform .3s ease;}
+  .price-card:hover .price-list li::before,
+  .price-card:focus-within .price-list li::before,
+  .price-card.open .price-list li::before{transform:rotate(90deg);}
+  @media (prefers-reduced-motion: reduce){
+    .price-list li{opacity:1;transform:none;transition:none;}
+    .price-list li::before{transition:none;}
+  }
 
   .addon{
     display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
@@ -421,11 +473,27 @@
   @media (prefers-reduced-motion: reduce){
     .reveal, .stagger-item{opacity:1;transform:none;transition:none;}
   }
+
+  /* ---------- back to top ---------- */
+  .to-top{
+    position:fixed;right:22px;bottom:22px;z-index:50;
+    width:44px;height:44px;border-radius:50%;
+    background:var(--surface);border:1px solid var(--border-strong);color:var(--fg);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:var(--shadow);cursor:pointer;
+    opacity:0;transform:translateY(10px) scale(.9);pointer-events:none;
+    transition:opacity .25s ease, transform .25s ease, border-color .2s ease, color .2s ease;
+  }
+  .to-top svg{width:13px;height:13px;}
+  .to-top.visible{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
+  .to-top:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px);}
+  @media (prefers-reduced-motion: reduce){ .to-top{transition:opacity .15s linear;} }
 </style>
 </head>
 <body>
 
 <div class="scroll-progress" id="scroll-progress"></div>
+<div class="cursor-glow" id="cursor-glow"></div>
 
 <header>
   <div class="nav wrap">
@@ -562,21 +630,21 @@
     </div>
     <p class="stat-line">15 dépôts sur 24 (github.com/splint314). Le reste est en vedette dans la section Projets.</p>
     <div class="repo-grid">
-      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-simple_shell2" target="_blank" rel="noopener">simple_shell</a><p>Shell UNIX écrit from scratch, en C.</p></div>
-      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-printf" target="_blank" rel="noopener">printf</a><p>Réimplémentation maison de printf en C.</p></div>
-      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-low_level_programming" target="_blank" rel="noopener">low_level_programming</a><p>Pointeurs, mémoire et structures en C bas niveau.</p></div>
-      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-higher_level_programming" target="_blank" rel="noopener">higher_level_programming</a><p>Python &amp; JavaScript orientés objet.</p></div>
-      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-web_back_end" target="_blank" rel="noopener">web_back_end</a><p>API et back-end web en Python.</p></div>
-      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-shell" target="_blank" rel="noopener">shell</a><p>Scripts shell en Bash.</p></div>
-      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-devops-basics" target="_blank" rel="noopener">devops-basics</a><p>Bases DevOps : CI/CD, conteneurs.</p></div>
-      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-sw_design_architecture" target="_blank" rel="noopener">sw_design_architecture</a><p>Architecture logicielle &amp; design patterns.</p></div>
-      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-core-engineering" target="_blank" rel="noopener">core-engineering</a><p>Fondamentaux d'ingénierie logicielle.</p></div>
-      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-data_modeling_and_persistence" target="_blank" rel="noopener">data_modeling_and_persistence</a><p>Modélisation de données &amp; persistance.</p></div>
-      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-Fix_My_Code_Challenge" target="_blank" rel="noopener">Fix_My_Code_Challenge</a><p>Challenge de correction de code en C.</p></div>
-      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-france-certificates-ibm" target="_blank" rel="noopener">france-certificates-ibm</a><p>Certificats IBM (Agile, Open Source).</p></div>
-      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-interview" target="_blank" rel="noopener">interview</a><p>Préparation aux entretiens techniques.</p></div>
-      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-github-flow" target="_blank" rel="noopener">github-flow</a><p>Apprentissage du workflow Git collaboratif.</p></div>
-      <div class="repo-card liftcard stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/git-intro" target="_blank" rel="noopener">git-intro</a><p>Introduction à Git.</p></div>
+      <div class="repo-card liftcard spot stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-simple_shell2" target="_blank" rel="noopener">simple_shell</a><p>Shell UNIX écrit from scratch, en C.</p></div>
+      <div class="repo-card liftcard spot stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-printf" target="_blank" rel="noopener">printf</a><p>Réimplémentation maison de printf en C.</p></div>
+      <div class="repo-card liftcard spot stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-low_level_programming" target="_blank" rel="noopener">low_level_programming</a><p>Pointeurs, mémoire et structures en C bas niveau.</p></div>
+      <div class="repo-card liftcard spot stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-higher_level_programming" target="_blank" rel="noopener">higher_level_programming</a><p>Python &amp; JavaScript orientés objet.</p></div>
+      <div class="repo-card liftcard spot stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-web_back_end" target="_blank" rel="noopener">web_back_end</a><p>API et back-end web en Python.</p></div>
+      <div class="repo-card liftcard spot stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-shell" target="_blank" rel="noopener">shell</a><p>Scripts shell en Bash.</p></div>
+      <div class="repo-card liftcard spot stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-devops-basics" target="_blank" rel="noopener">devops-basics</a><p>Bases DevOps : CI/CD, conteneurs.</p></div>
+      <div class="repo-card liftcard spot stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-sw_design_architecture" target="_blank" rel="noopener">sw_design_architecture</a><p>Architecture logicielle &amp; design patterns.</p></div>
+      <div class="repo-card liftcard spot stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-core-engineering" target="_blank" rel="noopener">core-engineering</a><p>Fondamentaux d'ingénierie logicielle.</p></div>
+      <div class="repo-card liftcard spot stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-data_modeling_and_persistence" target="_blank" rel="noopener">data_modeling_and_persistence</a><p>Modélisation de données &amp; persistance.</p></div>
+      <div class="repo-card liftcard spot stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-Fix_My_Code_Challenge" target="_blank" rel="noopener">Fix_My_Code_Challenge</a><p>Challenge de correction de code en C.</p></div>
+      <div class="repo-card liftcard spot stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-france-certificates-ibm" target="_blank" rel="noopener">france-certificates-ibm</a><p>Certificats IBM (Agile, Open Source).</p></div>
+      <div class="repo-card liftcard spot stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-interview" target="_blank" rel="noopener">interview</a><p>Préparation aux entretiens techniques.</p></div>
+      <div class="repo-card liftcard spot stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/holbertonschool-github-flow" target="_blank" rel="noopener">github-flow</a><p>Apprentissage du workflow Git collaboratif.</p></div>
+      <div class="repo-card liftcard spot stagger-item"><span class="path">splint314/</span><a href="https://github.com/splint314/git-intro" target="_blank" rel="noopener">git-intro</a><p>Introduction à Git.</p></div>
     </div>
   </section>
 
@@ -588,7 +656,7 @@
     </div>
     <div class="proj-grid">
 
-      <div class="proj-card liftcard stagger-item">
+      <div class="proj-card liftcard spot stagger-item">
         <div class="proj-top">
           <h3>Linguao</h3>
           <span class="proj-status">actif</span>
@@ -598,7 +666,7 @@
         <a class="proj-link" href="https://github.com/splint314/linguao" target="_blank" rel="noopener">Voir sur GitHub →</a>
       </div>
 
-      <div class="proj-card liftcard stagger-item">
+      <div class="proj-card liftcard spot stagger-item">
         <div class="proj-top">
           <h3>HBntory</h3>
           <span class="proj-status">actif</span>
@@ -608,7 +676,7 @@
         <a class="proj-link" href="https://github.com/splint314/HBntory" target="_blank" rel="noopener">Voir sur GitHub →</a>
       </div>
 
-      <div class="proj-card liftcard stagger-item">
+      <div class="proj-card liftcard spot stagger-item">
         <div class="proj-top">
           <h3>Simple Shell</h3>
           <span class="proj-status">finalisé</span>
@@ -618,7 +686,7 @@
         <a class="proj-link" href="https://github.com/splint314/holbertonschool-simple_shell2" target="_blank" rel="noopener">Voir sur GitHub →</a>
       </div>
 
-      <div class="proj-card liftcard stagger-item">
+      <div class="proj-card liftcard spot stagger-item">
         <div class="proj-top">
           <h3>Site vitrine · Mairie de Paris</h3>
           <span class="proj-status">finalisé</span>
@@ -628,7 +696,7 @@
         <a class="proj-link" href="https://github.com/Rwanbt/holbertonschool-project-paris" target="_blank" rel="noopener">Voir sur GitHub →</a>
       </div>
 
-      <div class="proj-card liftcard wide stagger-item">
+      <div class="proj-card liftcard spot wide stagger-item">
         <div class="proj-top">
           <h3>Bots Discord</h3>
           <span class="proj-status">actif · 6 instances</span>
@@ -656,7 +724,7 @@
     </div>
 
     <div class="pricing">
-      <div class="price-card" data-tier="basique">
+      <div class="price-card spot" data-tier="basique">
         <p class="price-tier">Essentiel</p>
         <h3>Basique</h3>
         <p class="price-amount">90€</p>
@@ -676,7 +744,7 @@
         </div>
       </div>
 
-      <div class="price-card" data-tier="avancee">
+      <div class="price-card spot" data-tier="avancee">
         <p class="price-tier">Modération</p>
         <h3>Avancée</h3>
         <p class="price-amount">240€</p>
@@ -695,7 +763,7 @@
         </div>
       </div>
 
-      <div class="price-card reco" data-tier="speciale">
+      <div class="price-card reco spot" data-tier="speciale">
         <span class="price-badge">Recommandé</span>
         <p class="price-tier">Premium</p>
         <h3>Spéciale</h3>
@@ -739,6 +807,10 @@
   </footer>
 
 </main>
+
+<button id="to-top" class="to-top" aria-label="Remonter en haut de page" title="Remonter en haut">
+  <svg viewBox="0 0 12 8" fill="none"><path d="M1 7l5-5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
 
 <script>
   (function(){
@@ -824,6 +896,48 @@
         var open = cardEl.classList.toggle("open");
         btn.setAttribute("aria-expanded", open ? "true" : "false");
       });
+    });
+
+    /* cursor-reactive glow + per-card spotlight */
+    var hasFineHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    if (!reduceMotion && hasFineHover) {
+      var glow = document.getElementById("cursor-glow");
+      var root = document.documentElement;
+      var ticking = false;
+      var lastX = 0, lastY = 0;
+      window.addEventListener("mousemove", function(e){
+        lastX = e.clientX; lastY = e.clientY;
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(function(){
+            root.style.setProperty("--mx", lastX + "px");
+            root.style.setProperty("--my", lastY + "px");
+            glow.classList.add("active");
+            ticking = false;
+          });
+        }
+      }, { passive: true });
+      document.addEventListener("mouseleave", function(){ glow.classList.remove("active"); });
+
+      document.querySelectorAll(".spot").forEach(function(el){
+        el.addEventListener("mousemove", function(e){
+          var r = el.getBoundingClientRect();
+          el.style.setProperty("--sx", (e.clientX - r.left) + "px");
+          el.style.setProperty("--sy", (e.clientY - r.top) + "px");
+        });
+      });
+    }
+
+    /* back to top */
+    var toTop = document.getElementById("to-top");
+    function updateToTop(){
+      var scrolled = document.documentElement.scrollTop || document.body.scrollTop;
+      toTop.classList.toggle("visible", scrolled > 640);
+    }
+    document.addEventListener("scroll", updateToTop, { passive: true });
+    updateToTop();
+    toTop.addEventListener("click", function(){
+      window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
     });
   })();
 </script>
